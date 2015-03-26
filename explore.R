@@ -27,21 +27,14 @@ setClass(
     summary = "data.table"
   )
 )
+# Apply one generic function.
 setGeneric(
-  name = "gcode", 
-  def = function(object) {standardGeneric("gcode")}
+  name = "emission", 
+  def = function(object) {standardGeneric("emission")}
 )
-setGeneric(
-  name = "gsummary",
-  def = function(object) {standardGeneric("gsummary")}
-) 
-setGeneric(
-  name = "gclass",
-  def = function(object) {standardGeneric("gclass")}
-)
-setMethod("gcode",signature("pm25"), get_code)
-setMethod("gsummary",signature("pm25"), get_summary)
-setMethod("gclass",signature("pm25"), get_class)
+setMethod("emission",signature("pm25"), get_code)
+setMethod("emission",signature("pm25"), get_summary)
+setMethod("emission",signature("pm25"), get_class)
 
 # helper functions -------------------------------
 load_dataset <- function(file_name) {
